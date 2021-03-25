@@ -46,6 +46,11 @@ li {
 a {
     text-decoration: none;
 }
+button, 
+button:active, 
+button:focus {
+    outline: none;
+}
 .container {
     margin: 0 auto;
     max-width: 1180px;
@@ -158,6 +163,7 @@ a {
     line-height: 47px;
     color: #281F1E;
     &--intro {
+        display: block;
         position: relative;
         width: 390px;
         .yellow {
@@ -213,9 +219,7 @@ a {
     display: block;
     width: 280px;
     height: 80px;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(1.56%, #D49C6B), to(#D49C6B));
-    background: -o-linear-gradient(top, #D49C6B 1.56%, #D49C6B 100%);
-    background: linear-gradient(180deg, #D49C6B 1.56%, #D49C6B 100%);
+    background-color: $brown;
     -webkit-box-shadow: 0px 10px 15px rgba(193, 200, 199, 0.5);
             box-shadow: 0px 10px 15px rgba(193, 200, 199, 0.5);
     border-radius: 90px;
@@ -226,6 +230,10 @@ a {
     letter-spacing: 0.03em;
     font-family: 'Gotham Pro';
     text-align: center;
+    &:hover {
+        background-color: #bc8351;
+        transition: .2s linear;
+    }
     &--intro {
         margin-top: 50px;
     }
@@ -234,21 +242,9 @@ a {
     }
     &--buy {
         margin: 0 auto;
-        background: #FFD583;
-        -webkit-box-shadow: 5px 5px 5px rgba(40, 31, 30, 0.2);
-                box-shadow: 5px 5px 5px rgba(40, 31, 30, 0.2);
-        padding: 25px 20px 26px 20px;
-        color: #281F1E;
-        &:hover {
-            background: #281F1E;
-            -webkit-box-shadow: 5px 5px 5px rgba(40, 31, 30, 0.2);
-                    box-shadow: 5px 5px 5px rgba(40, 31, 30, 0.2);
-            border-radius: 90px;
-            color: #ffffff;
-            -webkit-transition: .2s linear;
-            -o-transition: .2s linear;
-            transition: .2s linear;
-        }
+        border: none;
+        box-shadow: none;
+        cursor: pointer;
     }
 }
 .intro {
@@ -518,6 +514,22 @@ a {
 .buy {
     background-color: $dark;
     padding: 60px 0;
+    &__form {
+        display: block;
+        margin: 30px auto 0 auto;
+    }
+    &__input {
+        display: block;
+        margin: 0 auto 20px auto;
+        width: 600px;
+        height: 80px;
+        border-radius: 90px;
+        border: 1px $brown solid;
+        padding: 28px 30px;
+        font-size: 22px;
+        font-family: 'Gotham Pro';
+        outline: none;
+    }
 }
 .footer {
     background-color: #ffffff;
@@ -548,9 +560,7 @@ a {
             text-align: center;
             text-decoration: underline;
             &:hover {
-                color: #FFD583;
-                -webkit-transition: .2s linear;
-                -o-transition: .2s linear;
+                color: #bc8351;
                 transition: .2s linear;
             }
         }
@@ -570,10 +580,10 @@ a {
             height: 65px;
             fill: $brown;
             &:hover {
-                fill: rgb(41, 40, 39);
-                -webkit-transition: .2s linear;
-                -o-transition: .2s linear;
-                transition: .2s linear;
+                &:hover {
+                    fill: #bc8351;
+                    transition: .2s linear;
+                }
             }
             svg {
                 display: block;
@@ -917,6 +927,11 @@ a {
             }
         }
     }
+    .buy {
+        &__input {
+            width: 90%;
+        }
+    }
     .footer {
         &__inner {
             &--text {
@@ -1025,6 +1040,24 @@ a {
     .footer {
         padding: 60px 0;
     }
+    .button {
+        width: 215px;
+        height: 59px;
+        font-size: 17px;
+        padding: 18px 50px 19px 50px;
+        &--buy {
+            width: 95%;
+            padding: 18px 30px 19px 30px;
+        }
+    }
+    .buy {
+        &__input {
+            width: 95%;
+            height: 59px;
+            font-size: 17px;
+            margin: 0 auto 15px auto;
+        }
+    }
 }
 @media (max-width: 414px) {
     .list {
@@ -1059,6 +1092,11 @@ a {
         }
         &__img {
             margin-top: 40px;
+        }
+    }
+    .button {
+        &--buy {
+            width: 100%;
         }
     }
     .title {
@@ -1117,17 +1155,6 @@ a {
             }
         }
     }
-    .button {
-        width: 215px;
-        height: 59px;
-        font-size: 17px;
-        padding: 18px 50px 19px 50px;
-
-        &--buy {
-            width: 259px;
-            padding: 18px 30px 19px 30px;
-        }
-    }
     .program {
         &__inner {
             padding: 60px 0 50px 0;
@@ -1175,6 +1202,11 @@ a {
         }
         &__link {
             width: 80%;
+        }
+    }
+    .buy {
+        &__input {
+            width: 100%;
         }
     }
 }
